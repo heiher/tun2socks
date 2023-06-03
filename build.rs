@@ -46,6 +46,7 @@ const SOURCES: &[&str] = &[
     "impl/third-part/hev-task-system/src/kern/sync/hev-task-cond.c",
     "impl/third-part/hev-task-system/src/kern/sync/hev-task-mutex.c",
     "impl/third-part/hev-task-system/src/kern/task/hev-task-call.c",
+    "impl/third-part/hev-task-system/src/kern/task/hev-task-execute.S",
     "impl/third-part/hev-task-system/src/kern/task/hev-task-executer.c",
     "impl/third-part/hev-task-system/src/kern/task/hev-task-stack-heap.c",
     "impl/third-part/hev-task-system/src/kern/task/hev-task-stack-mmap.c",
