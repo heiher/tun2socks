@@ -1,0 +1,3 @@
+[submodule "impl"]
+	path = impl
+	url = https://github.com/heiher/hev-socks5-tunnel

@@ -1,0 +1,11 @@
+[package]
+name = "tun2socks"
+version = "0.0.1"
+authors = ["hev <r@hev.cc>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/heiher/tun2socks"
+description = "High performance tun2socks"
+
+[build-dependencies]
+cc = { version = "1.0.79", features = ["parallel"] }
