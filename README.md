@@ -15,11 +15,11 @@ Rust bindings for [HevSocks5Tunnel](https://github.com/heiher/hev-socks5-tunnel)
 ///
 /// # Returns
 ///
-/// Returns zero on successful, otherwise returns -1.
-pub fn main(config_path: *const c_char, tun_fd: c_int) -> c_int;
+/// Returns Ok(()) on successful, otherwise returns non-zero.
+pub fn main(config_path: &Path, tun_fd: RawFd) -> Result<(), i32>
 
 /// Stop the socks5 tunnel.
-pub fn quit();
+pub fn quit()
 ```
 
 ## Contributors

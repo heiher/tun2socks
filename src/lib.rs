@@ -1,4 +1,9 @@
+use std::ffi::CString;
 use std::os::raw::{c_char, c_int};
+use std::os::unix::ffi::OsStrExt;
+use std::os::unix::io::RawFd;
+use std::path::Path;
+use std::result::Result;
 
 extern "C" {
     fn hev_socks5_tunnel_main(config_path: *const c_char, tun_fd: c_int) -> c_int;
@@ -19,8 +24,18 @@ extern "C" {
 /// # Returns
 ///
 /// Returns zero on successful, otherwise returns -1.
-pub fn main(config_path: *const c_char, tun_fd: c_int) -> c_int {
-    unsafe { hev_socks5_tunnel_main(config_path, tun_fd) }
+pub fn main(config_path: &Path, tun_fd: RawFd) -> Result<(), i32> {
+    let path = CString::new(config_path.as_os_str().as_bytes()).unwrap();
+    let res;
+
+    unsafe {
+        res = hev_socks5_tunnel_main(path.as_ptr() as *const i8, tun_fd);
+    }
+
+    match res {
+        0 => Ok(()),
+        r => Err(r),
+    }
 }
 
 /// Stop the socks5 tunnel.
