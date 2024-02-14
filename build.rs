@@ -52,6 +52,7 @@ const SOURCES: &[&str] = &[
     "impl/third-part/hev-task-system/src/kern/task/hev-task-call.c",
     "impl/third-part/hev-task-system/src/kern/task/hev-task-stack-heap.c",
     "impl/third-part/hev-task-system/src/kern/task/hev-task-stack-mmap.c",
+    "impl/third-part/hev-task-system/src/kern/task/hev-task-execute.S",
     "impl/third-part/hev-task-system/src/kern/task/hev-task-executer.c",
     "impl/third-part/hev-task-system/src/kern/task/hev-task.c",
     "impl/third-part/hev-task-system/src/kern/time/hev-task-timer-kevent.c",
