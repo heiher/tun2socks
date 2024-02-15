@@ -1,6 +1,6 @@
 [package]
 name = "tun2socks"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["hev <r@hev.cc>"]
 license = "MIT"
 readme = "README.md"
