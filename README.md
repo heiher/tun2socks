@@ -64,6 +64,7 @@ pub fn quit()
 ## Contributors
 
 * **hev** - https://hev.cc
+* **pronebird** - https://github.com/pronebird
 
 ## License
 
