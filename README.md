@@ -41,8 +41,21 @@ See [here](https://github.com/heiher/hev-socks5-tunnel/wiki/Benchmarks) for more
 ///
 /// # Returns
 ///
-/// Returns Ok(()) on successful, otherwise returns non-zero.
-pub fn main(config_path: &Path, tun_fd: RawFd) -> Result<(), i32>
+/// Returns Ok(()) on successful, otherwise returns Err(r).
+pub fn main_from_file(config_path: &Path, tun_fd: RawFd) -> Result<(), i32>
+
+/// Start and run the socks5 tunnel, this function will blocks until the
+/// quit() is called or an error occurs.
+///
+/// # Arguments
+///
+/// * `config_str` - config string
+/// * `tun_fd` - tunnel file descriptor
+///
+/// # Returns
+///
+/// Returns Ok(()) on successful, otherwise returns Err(r).
+pub fn main_from_str(config_str: &str, tun_fd: RawFd) -> Result<(), i32>
 
 /// Stop the socks5 tunnel.
 pub fn quit()
