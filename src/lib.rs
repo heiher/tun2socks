@@ -31,7 +31,7 @@ extern "C" {
 ///
 /// # Returns
 ///
-/// Returns zero on successful, otherwise returns -1.
+/// Returns Ok(()) on successful, otherwise returns Err(r).
 pub fn main_from_file(config_path: &Path, tun_fd: RawFd) -> Result<(), i32> {
     let path = CString::new(config_path.as_os_str().as_bytes()).unwrap();
     let res = unsafe { hev_socks5_tunnel_main_from_file(path.as_ptr(), tun_fd) };
@@ -52,7 +52,7 @@ pub fn main_from_file(config_path: &Path, tun_fd: RawFd) -> Result<(), i32> {
 ///
 /// # Returns
 ///
-/// Returns zero on successful, otherwise returns -1.
+/// Returns Ok(()) on successful, otherwise returns Err(r).
 pub fn main_from_str(config_str: &str, tun_fd: RawFd) -> Result<(), i32> {
     let config_bytes = config_str.as_bytes();
     let res = unsafe {
