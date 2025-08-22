@@ -5,11 +5,11 @@ use std::os::unix::io::RawFd;
 use std::path::Path;
 use std::result::Result;
 
-extern "C" {
+unsafe extern "C" {
     fn hev_socks5_tunnel_main_from_file(config_path: *const c_char, tun_fd: c_int) -> c_int;
 }
 
-extern "C" {
+unsafe extern "C" {
     fn hev_socks5_tunnel_main_from_str(
         config_str: *const c_uchar,
         config_len: c_uint,
@@ -17,7 +17,7 @@ extern "C" {
     ) -> c_int;
 }
 
-extern "C" {
+unsafe extern "C" {
     fn hev_socks5_tunnel_quit();
 }
 
