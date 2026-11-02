@@ -7,7 +7,7 @@ Rust bindings for [HevSocks5Tunnel](https://github.com/heiher/hev-socks5-tunnel)
 * IPv4/IPv6. (dual stack)
 * Redirect TCP connections.
 * Redirect UDP packets. (Fullcone NAT, UDP in UDP/TCP)
-* Linux/Android/FreeBSD/macOS/iOS.
+* Linux/Android/FreeBSD/macOS/iOS/Windows.
 
 ## Benchmarks
 
@@ -59,7 +59,21 @@ pub fn main_from_str(config_str: &str, tun_fd: RawFd) -> Result<(), i32>
 
 /// Stop the socks5 tunnel.
 pub fn quit()
+
+/// Tunnel interface traffic statistics.
+pub struct Stats {
+    pub tx_packets: usize,
+    pub tx_bytes: usize,
+    pub rx_packets: usize,
+    pub rx_bytes: usize,
+}
+
+/// Retrieve tunnel interface traffic statistics.
+pub fn stats() -> Stats
 ```
+
+`RawFd` is the platform file descriptor type (`std::os::unix::io::RawFd` on
+Unix, `c_int` on Windows).
 
 ## Contributors
 
